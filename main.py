@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker,Session
 
-
+# Función para obtener una sesión de base de datos
 def get_db():
     db = SessionLocal()
     try:
@@ -73,4 +73,3 @@ def get_data(id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Item no encontrado")
     return item
 
-# Función para obtener una sesión de base de datos
